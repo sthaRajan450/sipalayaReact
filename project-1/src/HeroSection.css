@@ -1,0 +1,57 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 80px;
+  }
+  
+  .hero-text {
+    max-width: 50%;
+
+  }
+  
+  .hero-text h1 {
+    font-size: 60px;
+    margin: 0;
+  }
+  
+  .hero-text h2 {
+    font-size: 46px;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    border-right: 2px solid white;
+    padding-right: 4px;
+  }
+  
+  .hero-text p {
+    font-size: 16px;
+    margin: 20px 0;
+  }
+  
+  .portfolio-button {
+    background: transparent;
+    border: 2px solid white;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    border-radius: 20px;
+  }
+  
+  .portfolio-button:hover {
+    background: white;
+    color: #03233c;
+  }
+  .hero-image{
+   max-width: 50%;
+   margin-right: 20%;
+  }
+  .hero-image img {
+    width:1200px;
+    border-radius: 20px;
+    
+  }
+  
