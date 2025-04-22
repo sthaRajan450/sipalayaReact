@@ -1,3 +1,4 @@
+
 .hero {
     display: flex;
     justify-content: space-between;
@@ -11,6 +12,7 @@
   }
   
   .hero-text h1 {
+   
     font-size: 60px;
     margin: 0;
   }
