@@ -1,23 +1,30 @@
 import React from "react";
-import './Hero.css'
-function Hero() {
+import { Link } from "react-router-dom";
+
+const Hero = () => {
   return (
-    <div className="hero">
-      <div className="hero-text">
-        <h1>Career-Ready IT Training in Nepal</h1>
-        <p>
+    <div className="flex items-center bg-[linear-gradient(115deg,_#442F90_0%,_#220F68_100%)] w-full text-white px-30 py-7 ">
+      <div>
+        <h1 className="text-7xl w-[70%] font-bold">
+          Career-Ready IT Training in Nepal
+        </h1>
+        <p className="py-5 pb-10 text-[18px]">
           Gain job-ready skills with our IT courses in Nepal. Elevate your
           career prospects today!
         </p>
-        <button>
-          Find the course  <i class="ri-arrow-right-line"></i>
-        </button>
+        <Link className="bg-[#442F90] p-5 m-3  rounded-[10px]" to="/courses">
+          Find The Course <i className="ri-arrow-right-line"></i>{" "}
+        </Link>
       </div>
-      <div className="hero-img">
-        <img src="https://sipalaya.com/wp-content/uploads/2024/03/hero.png" alt="" />
+      <div>
+        <img
+          className="w-180"
+          src="https://sipalaya.com/wp-content/uploads/2024/03/hero.png"
+          alt=""
+        />
       </div>
     </div>
   );
-}
+};
 
 export default Hero;

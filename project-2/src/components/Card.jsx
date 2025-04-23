@@ -1,33 +1,17 @@
 import React from "react";
-import "./Card.css";
-const Card = () => {
+
+function Card({ card }) {
   return (
-    <div className="card-box">
-      <img
-        src="https://sipalaya.com/wp-content/uploads/2024/04/Blue-Illustrative-Employee-Training-Presentation-1-1.png"
-        alt=""
-      />
-      <div className="descriptions">
-        <h4>
-          <i class="ri-shining-2-line"></i>
-          <i class="ri-shining-2-line"></i>
-          <i class="ri-shining-2-line"></i>
-          <i class="ri-shining-2-line"></i>
-          <i class="ri-shining-2-line"></i>
-        </h4>
-        <h2>Web Design | HTML , CSS & JS | 2 Months</h2>
-        <p>
-          <span>By</span> <a href="#">Sipalaya InfoTech</a>
-        </p>
+    <div className="flex items-center gap-5">
+      <div className=" flex items-center  w-20 rounded-2xl overflow-hidden">
+        <img className="w-full h-full" src={card.img} alt="" />
       </div>
-      <div className="price-and-cart">
-        <span>Rs 9,999</span>
-        <button>
-          <i class="ri-shopping-cart-line"></i> Add to cart
-        </button>
+      <div>
+        <h1 className="text-2xl text-blue-700 font-bold">{card.h1}</h1>
+        <p className="text-[18px] text-blue-900">{card.p}</p>
       </div>
     </div>
   );
-};
+}
 
 export default Card;
