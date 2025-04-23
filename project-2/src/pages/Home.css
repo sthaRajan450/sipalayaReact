@@ -41,3 +41,109 @@
    background: #2940A2;
    color: #fff;
 }
+.sec-why-skill{
+    padding: 4vw 7vw;
+}
+.sec-padding{
+
+}
+.container{
+    margin-top: 30px;
+    text-align: center;
+}
+.container h1{
+    font-size: 4vw;
+    margin-bottom: 20px;
+}
+.container p{
+    color: #3b4571;
+    font-size: 20px;
+    
+}
+
+.main-container{
+    margin-top: 20px;
+    display: flex;
+    margin-left: 3vw;
+}
+.why-skill-img img{
+    width: 18vw;
+}
+.left-content{
+    width: 20%;;
+}
+.right-content{
+    display: flex;
+    align-items: center;
+    width: 75%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 13vw;
+    }
+.img-bx{
+    background: red;
+    width: 60px;
+    height: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.img-bx img{
+    width: 60px;
+    height: 100%;
+    
+}
+.card{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 5vw;
+}
+
+.card-text p{
+    font-size: 30px;
+    font-weight: 600;
+    color: #0a2aba;
+}
+
+.section2footer{
+    padding: 3vw 7vw;
+
+}
+.row{
+    background: radial-gradient(at center center, #D3D0FF 0%, #442F90 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vw 6vw;
+    border-radius: 10px;
+}
+
+.col-md-6 p{
+    font-size:20px;
+    padding-bottom: 10px;
+}
+.col-md-6 h1{
+    width: 80%;
+
+}
+.col-md-6 button{
+    cursor: pointer;
+    padding: 15px 30px;
+    font-size: 15px;
+    background: #442F90;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.section-3{
+    padding: 3vw 7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    
+}

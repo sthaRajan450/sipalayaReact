@@ -16,6 +16,7 @@ width: 50%;
     font-size: 1.1vw;
 }
 .hero-text button{
+    cursor: pointer;
     margin-top: 40px;
     background: #442F90;
     color: #fff;
