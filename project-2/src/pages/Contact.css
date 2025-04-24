@@ -1,0 +1,22 @@
+.contactfooter{
+    margin: 20px 0px;
+}
+
+.contactfooter h1{
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.contactfooter p{
+    font-size: 20px;
+}
+label{
+    font-size: 20px;
+    font-weight: 600;
+}
+input,textarea{
+    margin-bottom: 20px;
+    background: #F7F7F7;
+    padding: 15px;
+    border-radius: 5px;
+}
