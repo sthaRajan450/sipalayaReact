@@ -6,7 +6,6 @@ import { FaHatCowboy } from "react-icons/fa";
 import { GrUserManager } from "react-icons/gr";
 import Skill from "../components/Skill";
 import Box from "../components/Box";
-
 const courses = [
   {
     img: "https://sipalaya.com/wp-content/uploads/2024/04/Blue-Illustrative-Employee-Training-Presentation-1-1.png",
@@ -70,7 +69,9 @@ const courses = [
   },
 ];
 
+
 const Home = () => {
+ 
   return (
     <div>
       <Hero />

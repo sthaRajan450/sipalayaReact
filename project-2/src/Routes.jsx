@@ -11,14 +11,18 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Courses from "./pages/Courses";
 import Certificate from "./pages/Certificate";
+import Cart from "./pages/Cart";
+import CourseDetail from "./pages/CourseDetail";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<MainLayout />}>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/about-us" element={<About />}></Route>
-      <Route path="/contact" element={<Contact />}></Route>
-      <Route path="/courses" element={<Courses />}></Route>
-      <Route path="/certificate-verification" element={<Certificate />}></Route>
+      <Route path="/" element={<Home />}/>
+      <Route path="/about-us" element={<About />}/>
+      <Route path="/contact" element={<Contact />}/>
+      <Route path="/courses" element={<Courses />}>
+      </Route>
+      <Route path="/cart" element={<Cart />}/>
+      <Route path="/certificate-verification" element={<Certificate />}/>]
     </Route>
   )
 );
