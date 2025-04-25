@@ -1,0 +1,40 @@
+.heading{
+    color: red;
+    font-size: 70px;
+    text-align: center;
+}
+.container{
+    display: flex;
+     justify-content: space-around;
+}
+.add,.sub{
+    padding: 2vw 7vw;
+    background: blue;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    outline: none;
+}
+
+.result{
+    font-size: 45px;
+}
+.reset{
+    background: #000;
+    color: #fff;
+    width: 80%;
+    margin: 2vw 10vw;
+    padding: 20px;
+    font-size: 25px;
+    border-radius: 10px;
+}
+.container2{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.addValueHeading{
+    text-align: center;
+}
