@@ -8,27 +8,23 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (course) => {
-    if (!cartItems.find((item) => item.id === course.id)) {
-      setCartItems([...cartItems, course]);
-    }
+    setCartItems([...cartItems, course]);
   };
 
   const removeFromCart = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
+    setCartItems(cartItems.filter((item) => item.id !== id));
   };
 
   const getTotalAmount = () => {
     return cartItems.reduce((acc, item) => acc + Number(item.salesprice), 0);
   };
 
-
   // const transactionUUID = uuidv4();
   // const totalAmount = getTotalAmount();
-  // const taxAmount = 0; 
+  // const taxAmount = 0;
   // const signedFields = "total_amount,transaction_uuid,product_code";
   // const signatureString = `total_amount=${totalAmount},transaction_uuid=${transactionUUID},product_code=EPAYTEST`;
   // const signature = CryptoJS.HmacSHA256(signatureString, "8gBm/:&EnhH.1/q").toString(CryptoJS.enc.Base64);
-  
 
   return (
     <CartContextProvider value={{ cartItems, addToCart, removeFromCart }}>

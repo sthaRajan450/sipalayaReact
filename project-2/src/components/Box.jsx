@@ -6,7 +6,7 @@ import { FaRegStar } from "react-icons/fa";
 import { useCart } from "../context/CartContext";
 
 function Box({ course }) {
-  const { cartItems, addToCart } = useCart();
+  const { addToCart } = useCart();
   const navigate = useNavigate();
 
   return (
