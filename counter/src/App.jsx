@@ -15,7 +15,7 @@ const App = () => {
             }
           }}
         >
-          ADD
+          Increase
         </button>
         <h1 className="result">Counter:{counter}</h1>
         <button
@@ -26,7 +26,7 @@ const App = () => {
             }
           }}
         >
-          SUB
+          Decrease
         </button>
       </div>
       <button className="reset" onClick={() => setCounter(0)}>

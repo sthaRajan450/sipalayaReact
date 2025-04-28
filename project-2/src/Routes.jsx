@@ -13,12 +13,14 @@ import Courses from "./pages/Courses";
 import Certificate from "./pages/Certificate";
 import Cart from "./pages/Cart";
 import CourseDetail from "./pages/CourseDetail";
+import Checkout from "./pages/Checkout";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="" element={<MainLayout />}>
       <Route path="/" element={<Home />}/>
       <Route path="/about-us" element={<About />}/>
       <Route path="/contact" element={<Contact />}/>
+      <Route path="/checkout" element={<Checkout />}/>
       <Route path="/courses" element={<Courses />}>
       </Route>
       <Route path="/cart" element={<Cart />}/>
