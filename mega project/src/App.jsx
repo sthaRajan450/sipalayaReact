@@ -1,8 +1,9 @@
 import React from "react";
-import config from "./config/config";
+import conf from "./conf/conf";
+
 
 const App = () => {
-  console.log(config.appwriteUrl)
+  console.log(conf.appwriteUrl)
   return (
     <div className="w-full h-screen flex justify-center items-center">
       <h1 className="bg-red-700">
