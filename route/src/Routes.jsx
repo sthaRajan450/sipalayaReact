@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Login from "./pages/Login";
+import User from "./pages/User";
 const Routes = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,6 +21,7 @@ const Routes = () => {
         <Route path="/menu" element={<Menu />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/user/:id" element={<User />} />
       </Route>
     )
   );
