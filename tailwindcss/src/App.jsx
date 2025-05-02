@@ -12,7 +12,7 @@ function App() {
 
 
 
-      
+
       <div className="flex justify-center items-center w-2xl h-[200px] rounded-full bg-red-400 text-black">hello-1</div>
       <div className="flex justify-center items-center w-2xl h-[200px] rounded-full bg-red-400 text-black">hello-2</div>
       <div className="flex justify-center items-center w-2xl h-[200px] rounded-full bg-red-400 text-black">hello-3</div>
