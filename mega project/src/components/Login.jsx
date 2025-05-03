@@ -55,10 +55,10 @@ const Login = () => {
               label="Email"
               placeholder="Enter your email"
               type="email"
-              {...register("email"),{required:true}}
+              {...register("email",{required:true})}
             />
 
-            <Input label='Password' placeholder='Enter your password' type='password' {...register('password'),{required:true}}/>
+            <Input label='Password' placeholder='Enter your password' type='password' {...register('password',{required:true})}/>
             <Button type='submit' className='w-full'>Sign In</Button>
           </div>
         </form>

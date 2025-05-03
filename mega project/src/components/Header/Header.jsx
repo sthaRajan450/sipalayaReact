@@ -2,11 +2,12 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, LogoutBtn, Logo } from "../index";
 import { useSelector } from "react-redux";
-import { logout } from "../../store/authSlice";
+
 
 const Header = () => {
-  const authStatus = useSelector((state) => state.status);
+  const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
+  
   const navItems = [
     {
       name: "Home",
@@ -26,14 +27,15 @@ const Header = () => {
     {
       name: "All Posts",
       slug: "/all-posts",
-      active: !authStatus,
+      active: authStatus, // Only show if user is authenticated
     },
     {
       name: "Add Post",
       slug: "/add-post",
-      active: !authStatus,
+      active: authStatus, // Only show if user is authenticated
     },
   ];
+
   return (
     <header className="py-3 shadow bg-gray-600">
       <Container>
@@ -44,17 +46,18 @@ const Header = () => {
             </Link>
           </div>
           <ul className="flex ml-auto">
-            {navItems.map((navItem, index) =>
-              navItem.active ? (
-                <li key={navItem.name}>
-                  <button
-                    className="inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
-                    onClick={() => navigate(navItem.slug)}
-                  >
-                    {navItem.name}
-                  </button>
-                </li>
-              ) : null
+            {navItems.map(
+              (navItem) =>
+                navItem.active && (
+                  <li key={navItem.name}>
+                    <button
+                      className="inline-block px-6 py-2 duration-200 hover:bg-blue-100 rounded-full"
+                      onClick={() => navigate(navItem.slug)}
+                    >
+                      {navItem.name}
+                    </button>
+                  </li>
+                )
             )}
             {authStatus && (
               <li>

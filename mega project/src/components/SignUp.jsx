@@ -48,15 +48,15 @@ const SignUp = () => {
     
             <form onSubmit={handleSubmit(signup)} className="mt-8">
               <div className="space-y-5">
-                <Input label='Name' placeholder='Enter your full name' type='text' {...register('name'),{required:true}}/>
+                <Input label='Name' placeholder='Enter your full name' type='text' {...register('name',{required:true})}/>
                 <Input
                   label="Email"
                   placeholder="Enter your email"
                   type="email"
-                  {...register("email"),{required:true}}
+                  {...register("email",{required:true})}
                 />
     
-                <Input label='Password' placeholder='Enter your password' type='password' {...register('password'),{required:true}}/>
+                <Input label='Password' placeholder='Enter your password' type='password' {...register('password',{required:true})}/>
                 <Button type='submit' className='w-full'>Create Account</Button>
               </div>
             </form>

@@ -1,59 +1,56 @@
 import { Account, Client, ID } from "appwrite";
 import conf from "../conf/conf";
+
 class AuthService {
-  client = new Client();
-  account;
   constructor() {
-    
-    this.client
+    this.client = new Client()
       .setEndpoint(conf.appwriteUrl)
       .setProject(conf.appwriteProjectId);
+
     this.account = new Account(this.client);
   }
 
+  // Create a new account and log the user in
   async createAccount({ email, password, name }) {
     try {
-      const userAccount = await this.account.create(
-        ID.unique(),
-        email,
-        password,
-        name
-      );
-      if (userAccount) {
-        return this.login({ email, password });
-      } else {
-        return userAccount;
-      }
+      await this.account.create(ID.unique(), email, password, name);
+      return this.login({ email, password });
     } catch (error) {
+      if (error.code === 409) {
+        throw new Error("Email already registered. Please login instead.");
+      }
       throw error;
     }
   }
 
+  // Login with email and password
   async login({ email, password }) {
     try {
       return await this.account.createEmailPasswordSession(email, password);
     } catch (error) {
-      throw error;
+      throw new Error("Invalid email or password.");
     }
   }
 
+  // Get current user
   async getCurrentUser() {
     try {
       return await this.account.get();
     } catch (error) {
-      console.log("AppWrite Service :: getCurrentUser :: error", error);
+      console.error("AuthService :: getCurrentUser ::", error);
+      return null;
     }
-    return null;
   }
 
-
+  // Logout all sessions
   async logout() {
     try {
-       await this.account.deleteSessions();
+      await this.account.deleteSessions();
     } catch (error) {
-      throw error;
+      throw new Error("Logout failed.");
     }
   }
 }
+
 const authService = new AuthService();
 export default authService;
