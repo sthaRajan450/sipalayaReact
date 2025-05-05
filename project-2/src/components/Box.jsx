@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"; // ⬅️ added useNavigat
 import { BsCart2 } from "react-icons/bs";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaRegStar } from "react-icons/fa";
-import { useCart } from "../context/CartContext";
+// import { useCart } from "../context/CartContext";
 
 function Box({ course }) {
   const { addToCart } = useCart();
