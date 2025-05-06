@@ -3,14 +3,15 @@ import { Link, useNavigate } from "react-router-dom"; // ⬅️ added useNavigat
 import { BsCart2 } from "react-icons/bs";
 import { FaRegBookmark } from "react-icons/fa6";
 import { FaRegStar } from "react-icons/fa";
-// import { useCart } from "../context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 
 function Box({ course }) {
-  const { addToCart } = useCart();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
   return (
-    <div className="w-[26%] border-2 border-blue-500 rounded-2xl overflow-hidden relative">
+    <div className="w-[26%] border-2 border-blue-500 rounded-2xl overflow-hidden relative transform hover:-translate-y-2.5 duration-600">
       <div className="absolute top-5 right-5">
         <FaRegBookmark className="text-blue-500 text-4xl bg-gray-200 cursor-pointer p-2 rounded-full hover:text-white hover:bg-blue-600" />
       </div>
@@ -39,8 +40,9 @@ function Box({ course }) {
           </h1>
           <button
             onClick={() => {
-              addToCart(course);
-              navigate("/cart"); 
+              dispatch(addToCart({ ...course, id: course.id || Date.now() }));
+
+              navigate("/cart");
             }}
             className="flex items-center border-2 border-blue-400 px-3 py-2 rounded-2xl text-blue-500 font-semibold gap-2 hover:text-white hover:bg-blue-600 hover:outline-0"
           >

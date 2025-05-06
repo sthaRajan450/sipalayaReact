@@ -1,87 +1,65 @@
 import React from "react";
-// import { useCart } from "../context/CartContext";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFromCart } from "../store/cartSlice";
 import { useNavigate } from "react-router-dom";
 
-const CartPage = () => {
-  const { cartItems } = useCart();
-  const navigate = useNavigate();
+const Cart = () => {
+  const cart = useSelector((state) => state.cart.cart);
+  console.log(cart)
+  const navigate=useNavigate()
+  const dispatch = useDispatch();
 
-  const total = cartItems.reduce(
-    (acc, item) => acc + Number(item.salesprice),
-    0
-  );
+  const subtotal = cart.reduce((sum, item) => {
+    const cleanPrice = Number(item.salesprice.toString().replace(/,/g, ""));
+    return sum + (isNaN(cleanPrice) ? 0 : cleanPrice);
+  }, 0);
+  
+  
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 flex flex-col md:flex-row gap-8">
-      <div className="flex-1">
-        <h1 className="text-4xl font-bold mb-6 text-gray-900">Cart</h1>
-        {cartItems.length === 0 ? (
-          <p className="text-gray-600">No items in cart.</p>
-        ) : (
-          <div className="bg-white rounded-lg shadow p-6">
-            {cartItems.map((item) => (
-              <div
-                key={item.id}
-                className="flex items-center justify-between border-b py-4"
-              >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-20 h-20 object-contain"
-                  />
-                  <h2 className="text-lg font-medium text-gray-800">
-                    {item.title}
-                  </h2>
-                </div>
-                <div className="text-right">
-                  <p className="text-lg font-semibold text-gray-900">
-                    Rs.{item.price}
-                  </p>
-                  <button className="text-blue-600 text-sm mt-2 hover:underline">
-                    Remove
-                  </button>
-                </div>
+    <div className="flex justify-between p-10 gap-10">
+      {/* Cart Items */}
+      <div className="w-2/3">
+        <h1 className="text-3xl font-bold mb-6">Cart</h1>
+        {cart.map((course) => (
+          <div key={course.id} className="flex items-center justify-between bg-white p-6 rounded-lg shadow mb-4">
+            <div className="flex items-center gap-6">
+              <img src={course.img} alt={course.title} className="w-24 h-24 object-cover rounded" />
+              <div>
+                <h2 className="text-lg font-semibold">{course.title}</h2>
+                <p className="text-gray-600">Rs. {course.salesprice}</p>
               </div>
-            ))}
-          </div>
-        )}
-      </div>
-
-      <div className="w-full md:w-1/3">
-        <h2 className="text-4xl font-bold mb-6 text-gray-900">Summary</h2>
-        <div className="bg-white rounded-lg shadow p-6">
-          <div className="flex justify-between text-gray-600 mb-4">
-            <span>Subtotal</span>
-            <span>Rs.{total}</span>
-          </div>
-          <hr className="my-4" />
-          <div className="flex justify-between text-xl font-bold text-gray-900 mb-6">
-            <span>Total</span>
-            <span>Rs.{total}</span>
-          </div>
-
-          <button
-            onClick={() => navigate("/checkout")}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg text-lg font-semibold mb-6"
-          >
-            Proceed to checkout
-          </button>
-
-          <div className="flex">
-            <input
-              type="text"
-              placeholder="Enter coupon"
-              className="flex-1 border border-gray-300 rounded-l-lg p-3 focus:outline-none"
-            />
-            <button className="bg-blue-700 hover:bg-blue-800 text-white px-2 rounded-r-lg">
-              Apply
+            </div>
+            <button
+              onClick={() => dispatch(removeFromCart(course.id))}
+              className="text-blue-600 hover:underline"
+            >
+              Remove
             </button>
           </div>
+        ))}
+      </div>
+
+      {/* Summary */}
+      <div className="w-1/3 bg-white p-6 rounded-lg shadow h-fit">
+        <h2 className="text-2xl font-bold mb-4">Summary</h2>
+        <div className="flex justify-between text-gray-600 mb-2">
+          <span>Subtotal</span>
+          <span>Rs. {subtotal}</span>
         </div>
+        <div className="flex justify-between text-xl font-bold mb-6">
+          <span>Total</span>
+          <span>Rs. {subtotal}</span>
+        </div>
+        <button className="w-full bg-blue-600 text-white py-3 rounded-full font-semibold mb-4 hover:bg-blue-700" onClick={()=>{
+          navigate('/checkout')
+        }}>
+          Proceed to checkout
+        </button>
+        
       </div>
     </div>
   );
 };
 
-export default CartPage;
+export default Cart;
