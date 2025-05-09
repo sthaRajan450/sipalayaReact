@@ -68,12 +68,14 @@ const App = () => {
         <div className="flex flex-wrap gap-5 justify-center">
           {recipes.map((recipe) => (
             <div key={recipe.id} className="w-1/4 r bg-yellow-500 p-4 ">
-              <h1 className="text-center text-2xl font-semibold">{recipe.name}</h1>
+              <h1 className="text-center text-2xl font-semibold mb-5">{recipe.name}</h1>
               
+
+              <h1 className="font-bold pl-10">Ingredients:</h1>
               <ul>
                 
                {recipe.ingredients.map((ingredient,index)=>
-                <li key={index}>-{ingredient}</li>
+                <li className="pl-10" key={index}>-{ingredient}</li>
                )}
               </ul>
             </div>
